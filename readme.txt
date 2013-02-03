@@ -1,5 +1,5 @@
 === AppAd Manager ===
-Contributors: meloniq
+Contributors: meloniq, appthemes
 Donate link: http://blog.meloniq.net/donate/
 Tags: ad, ads, advertise, banner, adsense, between posts, theme, classipress, clipper, jobroller, vantage, ideas
 Requires at least: 3.3
