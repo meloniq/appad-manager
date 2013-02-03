@@ -1,9 +1,9 @@
 === AppAd Manager ===
 Contributors: meloniq
 Donate link: http://blog.meloniq.net/donate/
-Tags: ad, ads, advertise, banner, adsense, between posts, theme, classipress, clipper, jobroller, vantage, sage
-Requires at least: 3.0
-Tested up to: 3.3.1
+Tags: ad, ads, advertise, banner, adsense, between posts, theme, classipress, clipper, jobroller, vantage, ideas
+Requires at least: 3.3
+Tested up to: 3.5.1
 Stable tag: 1.0.0
 
 Displays google adsense (or other ads) between posts in AppThemes Premium Themes. 
@@ -47,7 +47,7 @@ Waiting as well for suggestions, where and how to insert new ads.
 
 Report it with details on <a href="http://wordpress.org/tags/appad-manager">support forum</a>.
 
-= Will Vantage and Sage theme be supported? =
+= Will Vantage and Ideas theme be supported? =
 
 Probably yes, few weeks later after official release date.
 

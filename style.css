@@ -1,42 +1,42 @@
 /* Clipper styles */
 .appad-clpr-between-box {
-  background: url("clipper/clpr-between-bg.png") no-repeat scroll 0 0 transparent;
-  height: 189px;
-  margin: 15px 18px 20px;
-  width: 617px;
+	background: url("clipper/clpr-between-bg.png") no-repeat scroll 0 0 transparent;
+	height: 189px;
+	margin: 15px 18px 20px;
+	width: 617px;
 }
 .appad-clpr-between-adsense {
-  height: 65px;
-  padding: 50px 0 0 103px;
-  width: 475px;
+	height: 65px;
+	padding: 50px 0 0 103px;
+	width: 475px;
 }
 
 
 /* ClassiPress styles */
 .appad-cp-between-box {
-  background: url("classipress/cp-between-bg.png") no-repeat scroll 0 0 transparent;
-  height: 172px;
-  margin: 0 0 8px;
-  width: 617px;
+	background: url("classipress/cp-between-bg.png") no-repeat scroll 0 0 transparent;
+	height: 172px;
+	margin: 0 0 8px;
+	width: 617px;
 }
 .appad-cp-between-adsense {
-  height: 65px;
-  padding: 75px 0 0 112px;
-  width: 475px;
+	height: 65px;
+	padding: 75px 0 0 112px;
+	width: 475px;
 }
 
 
 /* JobRoller styles */
 .appad-jr-between-box {
-  background: url("jobroller/jr-between-bg.png") no-repeat scroll 0 0 transparent;
-  height: 98px;
-  margin: 0;
-  width: 690px;
+	background: url("jobroller/jr-between-bg.png") no-repeat scroll 0 0 transparent;
+	height: 98px;
+	margin: 0;
+	width: 690px;
 }
 .appad-jr-between-adsense {
-  height: 65px;
-  padding: 10px 0 0 130px;
-  width: 475px;
+	height: 65px;
+	padding: 10px 0 0 130px;
+	width: 475px;
 }
 
 
