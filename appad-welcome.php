@@ -31,19 +31,19 @@
 					<tr>
 						<td style="text-align:center;">
 							<strong><?php _e( 'Clipper', 'appad' ); ?></strong><br />
-							<img src="<?php echo APPAD_PLUGIN_URL . '/clipper/screenshot.png'; ?>" width="260px" /><br />
+							<img src="<?php echo plugins_url( '/clipper/screenshot.png', __FILE__ ); ?>" width="260px" /><br />
 							<?php printf( __( '<a href="%s">Configure Ads</a>', 'appad' ), 'admin.php?page=appad-clipper' ); ?><br />
 							<?php printf( __( '<a target="_blank" href="%s">Buy Theme!</a>', 'appad' ), 'http://bit.ly/oLSh2D' ); ?><br />
 						</td>
 						<td style="text-align:center;">
 							<strong><?php _e( 'ClassiPress', 'appad' ); ?></strong><br />
-							<img src="<?php echo APPAD_PLUGIN_URL . '/classipress/screenshot.png'; ?>" width="260px" /><br />
+							<img src="<?php echo plugins_url( '/classipress/screenshot.png', __FILE__ ); ?>" width="260px" /><br />
 							<?php printf( __( '<a href="%s">Configure Ads</a>', 'appad' ), 'admin.php?page=appad-classipress' ); ?><br />
 							<?php printf( __( '<a target="_blank" href="%s">Buy Theme!</a>', 'appad' ), 'http://bit.ly/j5G6mG' ); ?><br />
 						</td>
 						<td style="text-align:center;">
 							<strong><?php _e( 'JobRoller', 'appad' ); ?></strong><br />
-							<img src="<?php echo APPAD_PLUGIN_URL . '/jobroller/screenshot.png'; ?>" width="260px" /><br />
+							<img src="<?php echo plugins_url( '/jobroller/screenshot.png', __FILE__ ); ?>" width="260px" /><br />
 							<?php printf( __( '<a href="%s">Configure Ads</a>', 'appad' ), 'admin.php?page=appad-jobroller' ); ?><br />
 							<?php printf( __( '<a target="_blank" href="%s">Buy Theme!</a>', 'appad' ), 'http://bit.ly/wQt43f' ); ?><br />
 						</td>
@@ -51,7 +51,7 @@
 					<tr>
 						<td style="text-align:center;">
 							<strong><?php _e( 'Vantage', 'appad' ); ?></strong><br />
-							<img src="<?php echo APPAD_PLUGIN_URL . '/vantage/screenshot.png'; ?>" width="260px" /><br />
+							<img src="<?php echo plugins_url( '/vantage/screenshot.png', __FILE__ ); ?>" width="260px" /><br />
 							<?php printf( __( '<a href="%s">Configure Ads</a>', 'appad' ), 'admin.php?page=appad-vantage' ); ?><br />
 							<?php printf( __( '<a target="_blank" href="%s">Buy Theme!</a>', 'appad' ), 'http://bit.ly/s23oNj' ); ?><br />
 						</td>

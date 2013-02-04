@@ -35,6 +35,9 @@ Waiting as well for suggestions, where and how to insert new ads.
 
 == Changelog ==
 
+= 1.1 =
+* Removed WP 2.8 compatibility constants
+
 = 1.0.0 =
 * Initial release
 
