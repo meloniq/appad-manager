@@ -24,7 +24,7 @@ register_activation_hook( plugin_basename( __FILE__ ), 'appad_activate' );
 /**
  * Load Text-Domain
  */
-load_plugin_textdomain( 'appad', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+load_plugin_textdomain( APPAD_TD, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 
 /**
@@ -91,12 +91,12 @@ function appad_add_menu_links() {
 	if ( ! current_user_can( 'manage_options' ) )
 		return;
 
-	add_menu_page( __( 'AppAd Manager', 'appad' ), __( 'AppAd Manager', 'appad' ), 'manage_options', basename( __FILE__ ), 'appad_dashboard', APPAD_FAVICON, APPAD_POSITION );
-	add_submenu_page( basename( __FILE__ ), __( 'Dashboard', 'appad' ), __( 'Dashboard', 'appad' ), 'manage_options', basename( __FILE__ ), 'appad_dashboard' );
-	add_submenu_page( basename( __FILE__ ), __( 'Clipper', 'appad' ), __( 'Clipper', 'appad' ), 'manage_options', 'appad-clipper', 'appad_clipper' );
-	add_submenu_page( basename( __FILE__ ), __( 'ClassiPress', 'appad' ), __( 'ClassiPress', 'appad' ), 'manage_options', 'appad-classipress', 'appad_classipress' );
-	add_submenu_page( basename( __FILE__ ), __( 'JobRoller', 'appad' ), __( 'JobRoller', 'appad' ), 'manage_options', 'appad-jobroller', 'appad_jobroller' );
-	add_submenu_page( basename( __FILE__ ), __( 'Vantage', 'appad' ), __( 'Vantage', 'appad' ), 'manage_options', 'appad-vantage', 'appad_vantage' );
+	add_menu_page( __( 'AppAd Manager', APPAD_TD ), __( 'AppAd Manager', APPAD_TD ), 'manage_options', basename( __FILE__ ), 'appad_dashboard', APPAD_FAVICON, APPAD_POSITION );
+	add_submenu_page( basename( __FILE__ ), __( 'Dashboard', APPAD_TD ), __( 'Dashboard', APPAD_TD ), 'manage_options', basename( __FILE__ ), 'appad_dashboard' );
+	add_submenu_page( basename( __FILE__ ), __( 'Clipper', APPAD_TD ), __( 'Clipper', APPAD_TD ), 'manage_options', 'appad-clipper', 'appad_clipper' );
+	add_submenu_page( basename( __FILE__ ), __( 'ClassiPress', APPAD_TD ), __( 'ClassiPress', APPAD_TD ), 'manage_options', 'appad-classipress', 'appad_classipress' );
+	add_submenu_page( basename( __FILE__ ), __( 'JobRoller', APPAD_TD ), __( 'JobRoller', APPAD_TD ), 'manage_options', 'appad-jobroller', 'appad_jobroller' );
+	add_submenu_page( basename( __FILE__ ), __( 'Vantage', APPAD_TD ), __( 'Vantage', APPAD_TD ), 'manage_options', 'appad-vantage', 'appad_vantage' );
 
 }
 add_action( 'admin_menu', 'appad_add_menu_links' );

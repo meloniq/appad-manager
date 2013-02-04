@@ -11,7 +11,7 @@ if ( isset( $app_theme ) && $app_theme == 'JobRoller' ) :
 			if ( appad_str_starts_with( $key, 'appad_' ) )
 				update_option( $key, appad_clean( $value ) );
 		}
-		$appad_message = '<div class="updated"><p><strong>' . __( 'Your settings has been successfully updated.', 'appad' ) . '</strong></p></div>';
+		$appad_message = '<div class="updated"><p><strong>' . __( 'Your settings has been successfully updated.', APPAD_TD ) . '</strong></p></div>';
 	}
 ?>
 <script type="text/javascript">
@@ -23,34 +23,34 @@ if ( isset( $app_theme ) && $app_theme == 'JobRoller' ) :
 </script>
 <div class="wrap">
 	<div class="icon32" id="icon-options-general"><br /></div>
-	<h2><?php _e( 'General Settings', 'appad' ); ?></h2>
+	<h2><?php _e( 'General Settings', APPAD_TD ); ?></h2>
 	<?php if( isset( $appad_message ) ) echo $appad_message; ?>
 	<form name="mainform" method="post" action="">
 		<input type="hidden" value="1" name="options_update">
 
 		<div id="tabs-wrap" class="">
 			<ul class="tabs">
-				<li class=""><a href="#tab1"><?php _e( 'General', 'appad' ); ?></a></li>
-				<li class=""><a href="#tab2"><?php _e( 'Between listings', 'appad' ); ?></a></li>
+				<li class=""><a href="#tab1"><?php _e( 'General', APPAD_TD ); ?></a></li>
+				<li class=""><a href="#tab2"><?php _e( 'Between listings', APPAD_TD ); ?></a></li>
 			</ul>
 
 			<div id="tab1" class="">
 				<table class="widefat fixed" style="width:850px; margin-bottom:20px;">
 					<thead>
 						<tr>
-							<th width="200px" scope="col"><?php _e( 'General', 'appad' ); ?></th>
+							<th width="200px" scope="col"><?php _e( 'General', APPAD_TD ); ?></th>
 							<th scope="col">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="titledesc"><?php _e( 'Activate ads?', 'appad' ); ?></td>
+							<td class="titledesc"><?php _e( 'Activate ads?', APPAD_TD ); ?></td>
 							<td class="forminp">
 								<select name="appad_jr_active">
-									<option value="no" <?php selected( get_option('appad_jr_active') == 'no' ); ?> ><?php _e( 'No', 'appad' ); ?></option>
-									<option value="yes" <?php selected( get_option('appad_jr_active') == 'yes' ); ?> ><?php _e( 'Yes', 'appad' ); ?></option>
+									<option value="no" <?php selected( get_option('appad_jr_active') == 'no' ); ?> ><?php _e( 'No', APPAD_TD ); ?></option>
+									<option value="yes" <?php selected( get_option('appad_jr_active') == 'yes' ); ?> ><?php _e( 'Yes', APPAD_TD ); ?></option>
 								</select>
-								<br /><small><?php _e( 'Enable or disable all advertise options. Each advertise have as well individual switch.', 'appad' ); ?></small>
+								<br /><small><?php _e( 'Enable or disable all advertise options. Each advertise have as well individual switch.', APPAD_TD ); ?></small>
 							</td>
 						</tr>
 					</tbody>
@@ -62,37 +62,37 @@ if ( isset( $app_theme ) && $app_theme == 'JobRoller' ) :
 				<table class="widefat fixed" style="width:850px; margin-bottom:20px;">
 					<thead>
 						<tr>
-							<th width="200px" scope="col"><?php _e( 'Ads between listings', 'appad' ); ?></th>
+							<th width="200px" scope="col"><?php _e( 'Ads between listings', APPAD_TD ); ?></th>
 							<th scope="col">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="titledesc"><?php _e( 'Activate?', 'appad' ); ?></td>
+							<td class="titledesc"><?php _e( 'Activate?', APPAD_TD ); ?></td>
 							<td class="forminp">
 								<select name="appad_jr_between_active">
-									<option value="no" <?php selected( get_option('appad_jr_between_active') == 'no' ); ?> ><?php _e( 'No', 'appad' ); ?></option>
-									<option value="yes" <?php selected( get_option('appad_jr_between_active') == 'yes' ); ?> ><?php _e( 'Yes', 'appad' ); ?></option>
+									<option value="no" <?php selected( get_option('appad_jr_between_active') == 'no' ); ?> ><?php _e( 'No', APPAD_TD ); ?></option>
+									<option value="yes" <?php selected( get_option('appad_jr_between_active') == 'yes' ); ?> ><?php _e( 'Yes', APPAD_TD ); ?></option>
 								</select>
-								<br /><small><?php _e( 'Enable inserting advertise between listings.', 'appad' ); ?></small>
+								<br /><small><?php _e( 'Enable inserting advertise between listings.', APPAD_TD ); ?></small>
 							</td>
 						</tr>
 						<tr>
-							<td class="titledesc"><?php _e( 'Frequency', 'appad' ); ?></td>
+							<td class="titledesc"><?php _e( 'Frequency', APPAD_TD ); ?></td>
 							<td class="forminp">
 								<select name="appad_jr_between_frequency">
 									<?php for ( $i = 1; $i <= 10; $i++ ) { ?>
 										<option value="<?php echo $i; ?>" <?php selected( get_option('appad_jr_between_frequency') == $i ); ?> ><?php echo $i; ?></option>
 									<?php } ?>
 								</select>
-								<br /><small><?php _e( 'Choose how often should be inserted advertise. After every X listing.', 'appad' ); ?></small>
+								<br /><small><?php _e( 'Choose how often should be inserted advertise. After every X listing.', APPAD_TD ); ?></small>
 							</td>
 						</tr>
 						<tr>
-							<td class="titledesc"><?php _e( 'Ad Code', 'appad' ); ?></td>
+							<td class="titledesc"><?php _e( 'Ad Code', APPAD_TD ); ?></td>
 							<td class="forminp">
 								<textarea id="appad_jr_between_code" style="width:500px;height:200px;" name="appad_jr_between_code"><?php echo get_option('appad_jr_between_code'); ?></textarea>
-								<br /><small><?php _e( 'Paste your ad code here (468x60). Supports many popular providers such as Google AdSense.', 'appad' ); ?></small>
+								<br /><small><?php _e( 'Paste your ad code here (468x60). Supports many popular providers such as Google AdSense.', APPAD_TD ); ?></small>
 							</td>
 						</tr>
 					</tbody>
@@ -100,7 +100,7 @@ if ( isset( $app_theme ) && $app_theme == 'JobRoller' ) :
 			</div>
 
 			<p class="submit">
-				<input type="submit" name="Submit" class="button-primary" value="<?php _e( 'Save Changes', 'appad' ); ?>" />
+				<input type="submit" name="Submit" class="button-primary" value="<?php _e( 'Save Changes', APPAD_TD ); ?>" />
 			</p>
 
 		</div>
@@ -113,8 +113,8 @@ else :
 	update_option( 'appad_jr_active', 'no' );
 
 	echo '<div class="update-nag">';
-	printf( __( 'Sorry, You are not using %s Theme, so You can not access this page.', 'appad' ), 'JobRoller' );
-	printf( __( ' <a target="_blank" href="%s">Buy it now!</a>', 'appad' ), 'http://bit.ly/wQt43f' );
+	printf( __( 'Sorry, You are not using %s Theme, so You can not access this page.', APPAD_TD ), 'JobRoller' );
+	printf( __( ' <a target="_blank" href="%s">Buy it now!</a>', APPAD_TD ), 'http://bit.ly/wQt43f' );
 	echo '</div>';
 endif; //app_theme
 
