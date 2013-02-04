@@ -47,8 +47,8 @@ if ( isset( $app_theme ) && $app_theme == 'JobRoller' ) :
 							<td class="titledesc"><?php _e( 'Activate ads?', 'appad' ); ?></td>
 							<td class="forminp">
 								<select name="appad_jr_active">
-									<option value="no" <?php if(get_option('appad_jr_active') == 'no'){ echo 'selected="selected"'; } ?> ><?php _e( 'No', 'appad' ); ?></option>
-									<option value="yes" <?php if(get_option('appad_jr_active') == 'yes'){ echo 'selected="selected"'; } ?> ><?php _e( 'Yes', 'appad' ); ?></option>
+									<option value="no" <?php selected( get_option('appad_jr_active') == 'no' ); ?> ><?php _e( 'No', 'appad' ); ?></option>
+									<option value="yes" <?php selected( get_option('appad_jr_active') == 'yes' ); ?> ><?php _e( 'Yes', 'appad' ); ?></option>
 								</select>
 								<br /><small><?php _e( 'Enable or disable all advertise options. Each advertise have as well individual switch.', 'appad' ); ?></small>
 							</td>
@@ -71,8 +71,8 @@ if ( isset( $app_theme ) && $app_theme == 'JobRoller' ) :
 							<td class="titledesc"><?php _e( 'Activate?', 'appad' ); ?></td>
 							<td class="forminp">
 								<select name="appad_jr_between_active">
-									<option value="no" <?php if(get_option('appad_jr_between_active') == 'no'){ echo 'selected="selected"'; } ?> ><?php _e( 'No', 'appad' ); ?></option>
-									<option value="yes" <?php if(get_option('appad_jr_between_active') == 'yes'){ echo 'selected="selected"'; } ?> ><?php _e( 'Yes', 'appad' ); ?></option>
+									<option value="no" <?php selected( get_option('appad_jr_between_active') == 'no' ); ?> ><?php _e( 'No', 'appad' ); ?></option>
+									<option value="yes" <?php selected( get_option('appad_jr_between_active') == 'yes' ); ?> ><?php _e( 'Yes', 'appad' ); ?></option>
 								</select>
 								<br /><small><?php _e( 'Enable inserting advertise between listings.', 'appad' ); ?></small>
 							</td>
@@ -81,9 +81,9 @@ if ( isset( $app_theme ) && $app_theme == 'JobRoller' ) :
 							<td class="titledesc"><?php _e( 'Frequency', 'appad' ); ?></td>
 							<td class="forminp">
 								<select name="appad_jr_between_frequency">
-									<?php for($i = 1; $i <= 10; $i++): ?>
-										<option value="<?php echo $i; ?>" <?php if(get_option('appad_jr_between_frequency') == $i){ echo 'selected="selected"'; } ?> ><?php echo $i; ?></option>
-									<?php endfor; ?>
+									<?php for ( $i = 1; $i <= 10; $i++ ) { ?>
+										<option value="<?php echo $i; ?>" <?php selected( get_option('appad_jr_between_frequency') == $i ); ?> ><?php echo $i; ?></option>
+									<?php } ?>
 								</select>
 								<br /><small><?php _e( 'Choose how often should be inserted advertise. After every X listing.', 'appad' ); ?></small>
 							</td>
