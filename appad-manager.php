@@ -1,34 +1,106 @@
 <?php
 /*
-	Plugin Name: AppAd Manager
-	Plugin URI: http://blog.meloniq.net/2012/03/08/wp-plugin-appad-manager/
-	Description: Displays google adsense (or other ads) between posts in AppThemes Premium Themes.
-	Author: MELONIQ.NET
-	Version: 1.0.0
-	Author URI: http://blog.meloniq.net
+Plugin Name: AppAd Manager
+Plugin URI: http://blog.meloniq.net/2012/03/08/wp-plugin-appad-manager/
+Description: Displays google adsense (or other ads) between posts in AppThemes Premium Themes.
+
+Version: 1.1
+
+Author: MELONIQ.NET
+Author URI: http://blog.meloniq.net
+Text Domain: appad-manager
+Domain Path: /languages
 */
 
 
-define( 'APPAD_VERSION', '1.0.0' );
+define( 'APPAD_VERSION', '1.1' );
 define( 'APPAD_TD', 'appad-manager' );
 define( 'APPAD_POSITION', 9 );
 define( 'APPAD_FAVICON', plugins_url( 'favicon.png', __FILE__ ) );
 
 
 /**
- * Process actions on plugin activation
- */
-register_activation_hook( plugin_basename( __FILE__ ), 'appad_activate' );
-
-
-/**
- * Load Text-Domain
+ * Load Text-Domain.
  */
 load_plugin_textdomain( APPAD_TD, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 
 /**
- * Load backend scripts
+ * Setup AppAd Manager.
+ *
+ * @return void
+ */
+function appad_manager_setup() {
+
+	// Check for existence of AppThemes compatible product
+	if ( ! function_exists( 'appthemes_init' ) ) {
+		if ( ! appad_manager_is_network_activated() ) {
+			add_action( 'admin_notices', 'appad_manager_display_version_warning' );
+		}
+		return;
+	}
+
+	$themes = array(
+		'classipress',
+		'clipper',
+		'hirebee',
+		'ideas',
+		'jobroller',
+		'qualitycontrol',
+		'taskerr',
+		'vantage',
+	);
+
+	foreach ( $themes as $theme_slug ) {
+		$filter_name = 'appthemes_addons_mp_markup_' . $theme_slug . '_page_app-addons-mp';
+		add_filter( $filter_name, 'appad_manager_addons_mp_markup', 9, 2 );
+	}
+
+}
+add_action( 'init', 'appad_manager_setup' );
+
+
+/**
+ * Display warning if AppThemes compatible product not installed.
+ *
+ * @return void
+ */
+function appad_manager_display_version_warning() {
+	global $pagenow;
+
+	// display only on Plugins, Themes, and Updates pages
+	$allowed_pages = array( 'plugins.php', 'themes.php', 'update-core.php' );
+	if ( ! in_array( $pagenow, $allowed_pages ) ) {
+		return;
+	}
+
+	$message = __( 'AppAd Manager for AppThemes does not support the current theme. Please use a compatible AppThemes theme.', APPAD_TD );
+	$message .= printf( ' <a target="_blank" href="http://bit.ly/AppThemes-themes">%s</a>', __( 'Buy it now!', APPAD_TD ) );
+
+	echo '<div class="error fade"><p>' . $message . '</p></div>';
+}
+
+
+/**
+ * Checks if plugin is network activated.
+ *
+ * @return bool
+ */
+function appad_manager_is_network_activated() {
+	if ( ! is_multisite() ) {
+		return false;
+	}
+
+	$plugins = get_site_option( 'active_sitewide_plugins' );
+
+	return isset( $plugins[ plugin_basename( __FILE__ ) ] );
+}
+
+
+/**
+ * Load backend scripts.
+ *
+ * @return void
  */
 function appad_load_admin_scripts() {
 	wp_enqueue_script( 'jquery-ui-tabs' );
@@ -37,7 +109,9 @@ add_action( 'admin_enqueue_scripts', 'appad_load_admin_scripts' );
 
 
 /**
- * Load frontend styles
+ * Load frontend styles.
+ *
+ * @return void
  */
 function appad_load_styles() {
 	wp_register_style( 'appad_style', plugins_url( 'style.css', __FILE__ ) );
@@ -47,7 +121,9 @@ add_action( 'wp_print_styles', 'appad_load_styles' );
 
 
 /**
- * Load backend styles
+ * Load backend styles.
+ *
+ * @return void
  */
 function appad_load_admin_styles() {
 	wp_register_style( 'appad_admin_style', plugins_url( 'admin-style.css', __FILE__ ) );
@@ -57,23 +133,26 @@ add_action( 'admin_enqueue_scripts', 'appad_load_admin_styles' );
 
 
 /**
- * Load hooks for used theme
+ * Load hooks for used theme.
+ *
+ * @return void
  */
 function langbf_load_hooks() {
 	global $app_theme;
+
 	if ( ! empty( $app_theme ) ) {
 		switch( $app_theme ) {
 			case 'Clipper':
-				require( dirname( __FILE__ ) . '/clipper/clipper-hooks.php' );
+				require_once( dirname( __FILE__ ) . '/clipper/clipper-hooks.php' );
 				break;
 			case 'ClassiPress':
-				require( dirname( __FILE__ ) . '/classipress/classipress-hooks.php' );
+				require_once( dirname( __FILE__ ) . '/classipress/classipress-hooks.php' );
 				break;
 			case 'JobRoller':
-				require( dirname( __FILE__ ) . '/jobroller/jobroller-hooks.php' );
+				require_once( dirname( __FILE__ ) . '/jobroller/jobroller-hooks.php' );
 				break;
 			case 'Vantage':
-				require( dirname( __FILE__ ) . '/vantage/vantage-hooks.php' );
+				require_once( dirname( __FILE__ ) . '/vantage/vantage-hooks.php' );
 				break;
 			default:
 				// do nothing, no supported theme
@@ -85,11 +164,14 @@ add_action( 'appthemes_init', 'langbf_load_hooks' );
 
 
 /**
- * Populate administration menu of the plugin
+ * Populate administration menu of the plugin.
+ *
+ * @return void
  */
 function appad_add_menu_links() {
-	if ( ! current_user_can( 'manage_options' ) )
+	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
+	}
 
 	add_menu_page( __( 'AppAd Manager', APPAD_TD ), __( 'AppAd Manager', APPAD_TD ), 'manage_options', basename( __FILE__ ), 'appad_dashboard', APPAD_FAVICON, APPAD_POSITION );
 	add_submenu_page( basename( __FILE__ ), __( 'Dashboard', APPAD_TD ), __( 'Dashboard', APPAD_TD ), 'manage_options', basename( __FILE__ ), 'appad_dashboard' );
@@ -103,52 +185,72 @@ add_action( 'admin_menu', 'appad_add_menu_links' );
 
 
 /**
- * Create welcome page in admin
+ * Create Welcome page in admin.
+ *
+ * @return void
  */
 function appad_dashboard() {
 	global $app_theme;
+
 	include_once( dirname( __FILE__ ) . '/appad-welcome.php' );
 }
 
 
 /**
- * Create clipper page in admin
+ * Create Clipper page in admin.
+ *
+ * @return void
  */
 function appad_clipper() {
 	global $app_theme;
+
 	include_once( dirname( __FILE__ ) . '/clipper/clipper-admin.php' );
 }
 
 
 /**
- * Create classipress page in admin
+ * Create ClassiPress page in admin.
+ *
+ * @return void
  */
 function appad_classipress() {
 	global $app_theme;
+
 	include_once( dirname( __FILE__ ) . '/classipress/classipress-admin.php' );
 }
 
 
 /**
- * Create jobroller page in admin
+ * Create JobRoller page in admin.
+ *
+ * @return void
  */
 function appad_jobroller() {
 	global $app_theme;
+
 	include_once( dirname( __FILE__ ) . '/jobroller/jobroller-admin.php' );
 }
 
 
 /**
- * Create welcome page in admin
+ * Create Vantage page in admin.
+ *
+ * @return void
  */
 function appad_vantage() {
 	global $app_theme;
+
 	include_once( dirname( __FILE__ ) . '/vantage/vantage-admin.php' );
 }
 
 
 /**
- * Helper function, check if string start with given search
+ * Helper function, check if string start with given search.
+ *
+ * @param string $string
+ * @param string $search
+ *
+ * @return bool
  */
 function appad_str_starts_with( $string, $search ) {
 	return ( strncmp( $string, $search, strlen( $search ) ) == 0 );
@@ -156,26 +258,65 @@ function appad_str_starts_with( $string, $search ) {
 
 
 /**
- * Helper function, clean string
+ * Helper function, clean string.
+ *
+ * @param string $string
+ *
+ * @return string
  */
 function appad_clean( $string ) {
 	$string = stripslashes( $string );
 	$string = trim( $string );
+
 	return $string;
 }
 
 
 /**
- * Action on plugin activate
+ * AppThemes Addons MP markup.
+ *
+ * @param string $output
+ * @param object $addon
+ *
+ * @return string
+ */
+function appad_manager_addons_mp_markup( $output, $addon ) {
+	if ( ! is_object( $addon ) || empty( $addon->link ) ) {
+		return $output;
+	}
+
+	$link_args = array(
+		'aid'          => '179',
+		'utm_source'   => 'addons',
+		'utm_medium'   => 'wp-admin',
+		'utm_campaign' => 'AppAd%20Manager',
+	);
+	$new_url = remove_query_arg( array_keys( $link_args ), $addon->link );
+	$new_url = add_query_arg( $link_args, $new_url );
+
+	$output = str_replace( $addon->link, $new_url, $output );
+	$output = str_replace( esc_url( $addon->link ), esc_url( $new_url ), $output );
+
+	return $output;
+}
+
+
+/**
+ * Action on plugin activate.
+ *
+ * @return void
  */
 function appad_activate() {
 
 	appad_install_options();
 }
+register_activation_hook( plugin_basename( __FILE__ ), 'appad_activate' );
 
 
 /**
- * Install default options
+ * Install default options.
+ *
+ * @return void
  */
 function appad_install_options() {
 	global $app_theme;

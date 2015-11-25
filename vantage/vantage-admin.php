@@ -1,6 +1,6 @@
 <?php
 /**
- * AppAd Vantage Admin
+ * AppAd Vantage Admin.
  */
 global $wpdb, $app_theme;
 

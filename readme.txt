@@ -1,30 +1,32 @@
 === AppAd Manager ===
 Contributors: meloniq, appthemes
 Donate link: http://blog.meloniq.net/donate/
-Tags: ad, ads, advertise, banner, adsense, between posts, theme, classipress, clipper, jobroller, vantage, ideas
-Requires at least: 3.3
-Tested up to: 3.5.1
-Stable tag: 1.0.0
+Tags: ad, ads, advertise, banner, adsense, between posts, appthemes, classipress, clipper, hirebee, ideas, jobroller, qualitycontrol, taskerr, vantage
+Requires at least: 4.0
+Tested up to: 4.3.1
+Stable tag: 1.1
 
 Displays google adsense (or other ads) between posts in AppThemes Premium Themes. 
 
 == Description ==
 
-This plugin insert advertise between posts (ads, coupons, job listings...) in AppThemes Premium Themes. 
-In administrative panel You can setup frequency of inserting advertise.
-Check screenshots to see how it will appear on Your site.
+This plugin inserts advertise between posts (ads, coupons, job listings...) in AppThemes Premium Themes. 
 
-= Supported themes =
-* AppThemes:
-ClassiPress, Clipper, JobRoller
+In administrative panel you can setup frequency of inserting advertises.
+
+Please look at the screenshots to see how it will appear on your website.
+
+= Supported themes from AppThemes =
+* ClassiPress
+* Clipper
+* JobRoller
 
 = Supported languages =
 * English
 * Polish
 
-If You translated plugin to Your native language, please send it to me, and will attach it to next release.
-E-mail address You will find on <a href="http://blog.meloniq.net/kontakt/">contact page</a>.
-Waiting as well for suggestions, where and how to insert new ads.
+If you have translated plugin to your native language, please send it to me, and I will attach it to next release.
+Email address you will find on [contact page](http://blog.meloniq.net/kontakt/).
 
 
 == Installation ==
@@ -37,6 +39,7 @@ Waiting as well for suggestions, where and how to insert new ads.
 
 = 1.1 =
 * Removed WP 2.8 compatibility constants
+* Code cleanup, documentation
 * Changed textdomain to 'appad-manager', represented by constant APPAD_TD
 
 = 1.0.0 =
@@ -49,11 +52,11 @@ Waiting as well for suggestions, where and how to insert new ads.
 
 = Plugin doesn't work for me, what to do? =
 
-Report it with details on <a href="http://wordpress.org/tags/appad-manager">support forum</a>.
+Report it with details on [support forum](https://wordpress.org/support/plugin/appad-manager).
 
-= Will Vantage and Ideas theme be supported? =
+= Will other themes from AppThemes be supported? =
 
-Probably yes, few weeks later after official release date.
+Yes, soon...
 
 
 == Screenshots ==

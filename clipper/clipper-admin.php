@@ -47,8 +47,8 @@ if ( isset( $app_theme ) && $app_theme == 'Clipper' ) :
 							<td class="titledesc"><?php _e( 'Activate ads?', APPAD_TD ); ?></td>
 							<td class="forminp">
 								<select name="appad_clpr_active">
-									<option value="no" <?php selected( get_option('appad_clpr_active') == 'no' ); ?> ><?php _e( 'No', APPAD_TD ); ?></option>
-									<option value="yes" <?php selected( get_option('appad_clpr_active') == 'yes' ); ?> ><?php _e( 'Yes', APPAD_TD ); ?></option>
+									<option value="no" <?php selected( get_option( 'appad_clpr_active' ) == 'no' ); ?> ><?php _e( 'No', APPAD_TD ); ?></option>
+									<option value="yes" <?php selected( get_option( 'appad_clpr_active' ) == 'yes' ); ?> ><?php _e( 'Yes', APPAD_TD ); ?></option>
 								</select>
 								<br /><small><?php _e( 'Enable or disable all advertise options. Each advertise have as well individual switch.', APPAD_TD ); ?></small>
 							</td>
@@ -71,8 +71,8 @@ if ( isset( $app_theme ) && $app_theme == 'Clipper' ) :
 							<td class="titledesc"><?php _e( 'Activate?', APPAD_TD ); ?></td>
 							<td class="forminp">
 								<select name="appad_clpr_between_active">
-									<option value="no" <?php selected( get_option('appad_clpr_between_active') == 'no' ); ?> ><?php _e( 'No', APPAD_TD ); ?></option>
-									<option value="yes" <?php selected( get_option('appad_clpr_between_active') == 'yes' ); ?> ><?php _e( 'Yes', APPAD_TD ); ?></option>
+									<option value="no" <?php selected( get_option( 'appad_clpr_between_active' ) == 'no' ); ?> ><?php _e( 'No', APPAD_TD ); ?></option>
+									<option value="yes" <?php selected( get_option( 'appad_clpr_between_active' ) == 'yes' ); ?> ><?php _e( 'Yes', APPAD_TD ); ?></option>
 								</select>
 								<br /><small><?php _e( 'Enable inserting advertise between coupons.', APPAD_TD ); ?></small>
 							</td>
@@ -82,7 +82,7 @@ if ( isset( $app_theme ) && $app_theme == 'Clipper' ) :
 							<td class="forminp">
 								<select name="appad_clpr_between_frequency">
 									<?php for ( $i = 1; $i <= 10; $i++ ) { ?>
-										<option value="<?php echo $i; ?>" <?php selected( get_option('appad_clpr_between_frequency') == $i ); ?> ><?php echo $i; ?></option>
+										<option value="<?php echo $i; ?>" <?php selected( get_option( 'appad_clpr_between_frequency' ) == $i ); ?> ><?php echo $i; ?></option>
 									<?php } ?>
 								</select>
 								<br /><small><?php _e( 'Choose how often should be inserted advertise. After every X coupon.', APPAD_TD ); ?></small>
@@ -91,7 +91,7 @@ if ( isset( $app_theme ) && $app_theme == 'Clipper' ) :
 						<tr>
 							<td class="titledesc"><?php _e( 'Ad Code', APPAD_TD ); ?></td>
 							<td class="forminp">
-								<textarea id="appad_clpr_between_code" style="width:500px;height:200px;" name="appad_clpr_between_code"><?php echo get_option('appad_clpr_between_code'); ?></textarea>
+								<textarea id="appad_clpr_between_code" style="width:500px;height:200px;" name="appad_clpr_between_code"><?php echo get_option( 'appad_clpr_between_code' ); ?></textarea>
 								<br /><small><?php _e( 'Paste your ad code here (468x60). Supports many popular providers such as Google AdSense.', APPAD_TD ); ?></small>
 							</td>
 						</tr>

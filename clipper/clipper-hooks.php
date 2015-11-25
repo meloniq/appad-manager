@@ -1,8 +1,8 @@
 <?php
 /**
- * AppAd Clipper Hooks
+ * AppAd Clipper Hooks.
  */
-if ( get_option('appad_clpr_active') == 'yes' ) {
+if ( get_option( 'appad_clpr_active' ) == 'yes' ) {
 
 	if ( get_option('appad_clpr_between_active') == 'yes' ) {
 		add_action( 'appthemes_after_post', 'appad_clpr_between' );
@@ -12,19 +12,24 @@ if ( get_option('appad_clpr_active') == 'yes' ) {
 }
 
 
-// inserts ads between coupons
+/**
+ * Inserts ads between coupon listings.
+ *
+ * @return void
+ */
 function appad_clpr_between() {
 	global $appad_counter;
 
-	if ( ! isset( $appad_counter ) )
+	if ( ! isset( $appad_counter ) ) {
 		$appad_counter = 0;
+	}
 
-	$appad_frequency = get_option('appad_clpr_between_frequency');
+	$appad_frequency = get_option( 'appad_clpr_between_frequency' );
 	$appad_counter++;
 
 	if ( $appad_counter == $appad_frequency ) {
 		echo '<div class="appad-clpr-between-box"><div class="appad-clpr-between-adsense">';
-		echo get_option('appad_clpr_between_code');
+		echo get_option( 'appad_clpr_between_code' );
 		echo '</div></div>';
 		$appad_counter = 0;
 	}
@@ -32,9 +37,14 @@ function appad_clpr_between() {
 }
 
 
-// resets between counter
+/**
+ * Resets between counter.
+ *
+ * @return void
+ */
 function appad_clpr_between_reset() {
 	global $appad_counter;
+
 	$appad_counter = 0;
 }
 
