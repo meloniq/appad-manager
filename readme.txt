@@ -24,6 +24,7 @@ Please look at the screenshots to see how it will appear on your website.
 = Available translations =
 * English
 * Dutch-Belgium (by Gino Descamps)
+* Italian (by Fabio Ranieri)
 * Polish
 
 If you have translated plugin to your native language, please send it to me, and I will attach it to next release.
@@ -39,6 +40,7 @@ Email address you will find on [contact page](http://blog.meloniq.net/kontakt/).
 == Changelog ==
 
 = 1.2 =
+* Added Italian translation
 * Added Dutch (Belgium) translation
 
 = 1.1 =
