@@ -21,8 +21,9 @@ Please look at the screenshots to see how it will appear on your website.
 * Clipper
 * JobRoller
 
-= Supported languages =
+= Available translations =
 * English
+* Dutch-Belgium (by Gino Descamps)
 * Polish
 
 If you have translated plugin to your native language, please send it to me, and I will attach it to next release.
@@ -36,6 +37,9 @@ Email address you will find on [contact page](http://blog.meloniq.net/kontakt/).
 3. Go to "Settings->AppAd Manager" menu and fill settings.
 
 == Changelog ==
+
+= 1.2 =
+* Added Dutch (Belgium) translation
 
 = 1.1 =
 * Removed WP 2.8 compatibility constants
