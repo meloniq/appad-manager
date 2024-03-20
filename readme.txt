@@ -1,10 +1,11 @@
 === AppAd Manager ===
 Contributors: meloniq, appthemes
-Donate link: http://blog.meloniq.net/donate/
+Donate link: https://blog.meloniq.net/donate/
 Tags: ad, ads, advertise, banner, adsense, between posts, appthemes, classipress, clipper, hirebee, ideas, jobroller, qualitycontrol, taskerr, vantage
-Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 1.1
+Requires at least: 4.9
+Requires PHP: 5.6
+Tested up to: 6.5
+Stable tag: 1.2
 
 Displays google adsense (or other ads) between posts in AppThemes Premium Themes. 
 
@@ -28,7 +29,7 @@ Please look at the screenshots to see how it will appear on your website.
 * Polish
 
 If you have translated plugin to your native language, please send it to me, and I will attach it to next release.
-Email address you will find on [contact page](http://blog.meloniq.net/kontakt/).
+Email address you will find on [contact page](https://blog.meloniq.net/kontakt/).
 
 
 == Installation ==
@@ -59,11 +60,6 @@ Email address you will find on [contact page](http://blog.meloniq.net/kontakt/).
 = Plugin doesn't work for me, what to do? =
 
 Report it with details on [support forum](https://wordpress.org/support/plugin/appad-manager).
-
-= Will other themes from AppThemes be supported? =
-
-Yes, soon...
-
 
 == Screenshots ==
 

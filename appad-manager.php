@@ -1,15 +1,18 @@
 <?php
 /*
 Plugin Name: AppAd Manager
-Plugin URI: http://blog.meloniq.net/2012/03/08/wp-plugin-appad-manager/
+Plugin URI: https://blog.meloniq.net/2012/03/08/wp-plugin-appad-manager/
 Description: Displays google adsense (or other ads) between posts in AppThemes Premium Themes.
 
-Version: 1.1
+Version: 1.2
 
 Author: MELONIQ.NET
-Author URI: http://blog.meloniq.net
+Author URI: https://blog.meloniq.net
 Text Domain: appad-manager
 Domain Path: /languages
+
+Requires at least: 4.9
+Requires PHP: 5.6
 */
 
 
