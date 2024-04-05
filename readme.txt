@@ -5,13 +5,13 @@ Tags: ad, ads, advertise, banner, adsense, between posts, appthemes, classipress
 Requires at least: 4.9
 Requires PHP: 5.6
 Tested up to: 6.5
-Stable tag: 1.2
+Stable tag: 1.3
 
-Displays google adsense (or other ads) between posts in AppThemes Premium Themes. 
+Displays google adsense (or other ads) between posts in AppThemes Premium Themes.
 
 == Description ==
 
-This plugin inserts advertise between posts (ads, coupons, job listings...) in AppThemes Premium Themes. 
+This plugin inserts advertise between posts (ads, coupons, job listings...) in AppThemes Premium Themes.
 
 In administrative panel you can setup frequency of inserting advertises.
 
@@ -22,16 +22,6 @@ Please look at the screenshots to see how it will appear on your website.
 * Clipper
 * JobRoller
 
-= Available translations =
-* English
-* Dutch-Belgium (by Gino Descamps)
-* Italian (by Fabio Ranieri)
-* Polish
-
-If you have translated plugin to your native language, please send it to me, and I will attach it to next release.
-Email address you will find on [contact page](https://blog.meloniq.net/kontakt/).
-
-
 == Installation ==
 
 1. Upload the folder 'appad-manager' to the '/wp-content/plugins/' directory
@@ -39,6 +29,9 @@ Email address you will find on [contact page](https://blog.meloniq.net/kontakt/)
 3. Go to "Settings->AppAd Manager" menu and fill settings.
 
 == Changelog ==
+
+= 1.3 =
+* Rewritten after 9 years break
 
 = 1.2 =
 * Added Italian translation

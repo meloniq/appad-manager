@@ -1,6 +1,6 @@
 /* Clipper styles */
 .appad-clpr-between-box {
-	background: url("clipper/clpr-between-bg.png") no-repeat scroll 0 0 transparent;
+	background: url("images/clpr-between-bg.png") no-repeat scroll 0 0 transparent;
 	height: 189px;
 	margin: 15px 18px 20px;
 	width: 617px;
@@ -14,7 +14,7 @@
 
 /* ClassiPress styles */
 .appad-cp-between-box {
-	background: url("classipress/cp-between-bg.png") no-repeat scroll 0 0 transparent;
+	background: url("images/cp-between-bg.png") no-repeat scroll 0 0 transparent;
 	height: 172px;
 	margin: 0 0 8px;
 	width: 617px;
@@ -28,7 +28,7 @@
 
 /* JobRoller styles */
 .appad-jr-between-box {
-	background: url("jobroller/jr-between-bg.png") no-repeat scroll 0 0 transparent;
+	background: url("images/jr-between-bg.png") no-repeat scroll 0 0 transparent;
 	height: 98px;
 	margin: 0;
 	width: 690px;
