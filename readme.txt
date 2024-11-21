@@ -1,11 +1,13 @@
 === AppAd Manager ===
 Contributors: meloniq, appthemes
-Donate link: https://blog.meloniq.net/donate/
-Tags: ad, ads, advertise, banner, adsense, between posts, appthemes, classipress, clipper, hirebee, ideas, jobroller, qualitycontrol, taskerr, vantage
+Tags: adsense, advertise, banner, adsense, appthemes
 Requires at least: 4.9
 Requires PHP: 5.6
-Tested up to: 6.5
+Tested up to: 6.7
 Stable tag: 1.3
+License: GPLv2
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
 
 Displays google adsense (or other ads) between posts in AppThemes Premium Themes.
 

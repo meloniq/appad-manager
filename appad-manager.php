@@ -66,7 +66,7 @@ add_action( 'appthemes_init', 'appad_manager_setup' );
 function appad_manager_load_textdomain() {
 	load_plugin_textdomain( APPAD_TD, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
-add_action( 'plugins_loaded', 'appad_manager_load_textdomain' );
+add_action( 'init', 'appad_manager_load_textdomain' );
 
 
 /**
