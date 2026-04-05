@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="AppAd Manager">
+	<description>AppAd Manager rules for PHP_CodeSniffer</description>
+
+	<rule ref="WordPress">
+	</rule>
+</ruleset>
