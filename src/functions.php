@@ -1,30 +1,35 @@
 <?php
+/**
+ * Helper functions.
+ *
+ * @package AppAdManager
+ */
 
 /**
  * Helper function, check if string start with given search.
  *
- * @param string $string
- * @param string $search
+ * @param string $text   The string to check.
+ * @param string $search The string to search for at the start of $text.
  *
  * @return bool
  */
-function appad_str_starts_with( $string, $search ) {
-	return ( strncmp( $string, $search, strlen( $search ) ) == 0 );
+function appad_str_starts_with( $text, $search ) {
+	return ( strncmp( $text, $search, strlen( $search ) ) == 0 );
 }
 
 
 /**
  * Helper function, clean string.
  *
- * @param string $string
+ * @param string $text A string to clean.
  *
  * @return string
  */
-function appad_clean( $string ) {
-	$string = stripslashes( $string );
-	$string = trim( $string );
+function appad_clean( $text ) {
+	$text = stripslashes( $text );
+	$text = trim( $text );
 
-	return $string;
+	return $text;
 }
 
 
@@ -36,14 +41,14 @@ function appad_clean( $string ) {
 function appad_manager_display_version_warning() {
 	global $pagenow;
 
-	// display only on Plugins, Themes, and Updates pages
+	// display only on Plugins, Themes, and Updates pages.
 	$allowed_pages = array( 'plugins.php', 'themes.php', 'update-core.php' );
-	if ( ! in_array( $pagenow, $allowed_pages ) ) {
+	if ( ! in_array( $pagenow, $allowed_pages, true ) ) {
 		return;
 	}
 
-	$message = __( 'AppAd Manager for AppThemes does not support the current theme. Please use a compatible AppThemes theme.', APPAD_TD );
-	$message .= printf( ' <a target="_blank" href="http://bit.ly/AppThemes-themes">%s</a>', __( 'Buy it now!', APPAD_TD ) );
+	$message  = __( 'AppAd Manager for AppThemes does not support the current theme. Please use a compatible AppThemes theme.', 'appad-manager' );
+	$message .= printf( ' <a target="_blank" href="http://bit.ly/AppThemes-themes">%s</a>', __( 'Buy it now!', 'appad-manager' ) );
 
 	echo '<div class="error fade"><p>' . $message . '</p></div>';
 }
@@ -63,5 +68,3 @@ function appad_manager_is_network_activated() {
 
 	return isset( $plugins[ plugin_basename( __FILE__ ) ] );
 }
-
-

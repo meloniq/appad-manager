@@ -11,17 +11,16 @@ class APP_Ad_Manager_Settings extends APP_Tabs_Page {
 	 */
 	function setup() {
 
-		$this->textdomain = APPAD_TD;
+		$this->textdomain = 'appad-manager';
 
 		$this->args = array(
-			'page_title'  => __( 'AppAd Manager Settings', APPAD_TD ),
-			'menu_title'  => __( 'AppAd Manager', APPAD_TD ),
-			'page_slug'   => 'app-ad-manager',
-			'parent'      => 'app-dashboard',
-			'screen_icon' => 'options-general',
+			'page_title'            => __( 'AppAd Manager Settings', 'appad-manager' ),
+			'menu_title'            => __( 'AppAd Manager', 'appad-manager' ),
+			'page_slug'             => 'app-ad-manager',
+			'parent'                => 'app-dashboard',
+			'screen_icon'           => 'options-general',
 			'admin_action_priority' => 11,
 		);
-
 	}
 
 
@@ -32,78 +31,95 @@ class APP_Ad_Manager_Settings extends APP_Tabs_Page {
 	 */
 	protected function init_tabs() {
 
-		$this->tabs->add( 'between', __( 'Between', APPAD_TD ) );
-		$this->tabs->add( 'themes', __( 'Themes', APPAD_TD ) );
-
+		$this->tabs->add( 'between', __( 'Between', 'appad-manager' ) );
+		$this->tabs->add( 'themes', __( 'Themes', 'appad-manager' ) );
 
 		$this->tab_sections['between']['settings'] = array(
-			'title' => __( 'Between Settings', APPAD_TD ),
+			'title'  => __( 'Between Settings', 'appad-manager' ),
 			'fields' => array(
 				array(
-					'title' => __( 'Enabled', APPAD_TD ),
+					'title' => __( 'Enabled', 'appad-manager' ),
 					'type'  => 'checkbox',
 					'name'  => 'between_active',
-					'desc'  => __( 'Yes', APPAD_TD ),
-					'tip'   => __( 'Enable inserting advertise between listings.', APPAD_TD ),
+					'desc'  => __( 'Yes', 'appad-manager' ),
+					'tip'   => __( 'Enable inserting advertise between listings.', 'appad-manager' ),
 				),
 				array(
-					'title'  => __( 'Frequency', APPAD_TD ),
+					'title'  => __( 'Frequency', 'appad-manager' ),
 					'type'   => 'select',
 					'name'   => 'between_frequency',
 					'values' => $this->get_frequency_options(),
-					'tip'    => __( 'Choose how often should be inserted advertise. After every X listing.', APPAD_TD ),
+					'tip'    => __( 'Choose how often should be inserted advertise. After every X listing.', 'appad-manager' ),
 				),
 				array(
-					'title' => __( 'Ad Code', APPAD_TD ),
-					'desc'  => __( 'Paste your ad code here (468x60). Supports many popular providers such as Google AdSense.', APPAD_TD ),
+					'title' => __( 'Ad Code', 'appad-manager' ),
+					'desc'  => __( 'Paste your ad code here (468x60). Supports many popular providers such as Google AdSense.', 'appad-manager' ),
 					'type'  => 'textarea',
 					'name'  => 'between_code',
 					'extra' => array(
-						'style' => 'width: 500px; height: 200px;'
+						'style' => 'width: 500px; height: 200px;',
 					),
-					'tip'   => __( 'Paste your ad code here (468x60). Supports many popular providers such as Google AdSense.', APPAD_TD ),
+					'tip'   => __( 'Paste your ad code here (468x60). Supports many popular providers such as Google AdSense.', 'appad-manager' ),
 				),
 			),
 		);
-
 
 		$this->tab_sections['themes']['support'] = array(
-			'title' => __( 'Supported Themes', APPAD_TD ),
+			'title'  => __( 'Supported Themes', 'appad-manager' ),
 			'fields' => array(
 				array(
-					'title' => __( 'Clipper', APPAD_TD ),
+					'title' => __( 'Clipper', 'appad-manager' ),
 					'name'  => '_blank',
 					'type'  => '',
-					'desc'  => html( 'img', array( 'src' => plugins_url( '/images/clpr-screenshot.png', dirname( __FILE__ ) ), 'width' => '260', 'alt' => 'Clipper' ) ) . '<br />' .
-						sprintf( __( '<a target="_blank" href="%s">Buy Theme!</a>', APPAD_TD ), 'https://bit.ly/oLSh2D' ),
+					'desc'  => html(
+						'img',
+						array(
+							'src'   => plugins_url( '/images/clpr-screenshot.png', __DIR__ ),
+							'width' => '260',
+							'alt'   => 'Clipper',
+						)
+					) . '<br />' .
+						sprintf( __( '<a target="_blank" href="%s">Buy Theme!</a>', 'appad-manager' ), 'https://bit.ly/oLSh2D' ),
 					'extra' => array(
-						'style' => 'display: none;'
+						'style' => 'display: none;',
 					),
 				),
 				array(
-					'title' => __( 'ClassiPress', APPAD_TD ),
+					'title' => __( 'ClassiPress', 'appad-manager' ),
 					'name'  => '_blank',
 					'type'  => '',
-					'desc'  => html( 'img', array( 'src' => plugins_url( '/images/cp-screenshot.png', dirname( __FILE__ ) ), 'width' => '260', 'alt' => 'Clipper' ) ) . '<br />' .
-						sprintf( __( '<a target="_blank" href="%s">Buy Theme!</a>', APPAD_TD ), 'https://bit.ly/j5G6mG' ),
+					'desc'  => html(
+						'img',
+						array(
+							'src'   => plugins_url( '/images/cp-screenshot.png', __DIR__ ),
+							'width' => '260',
+							'alt'   => 'Clipper',
+						)
+					) . '<br />' .
+						sprintf( __( '<a target="_blank" href="%s">Buy Theme!</a>', 'appad-manager' ), 'https://bit.ly/j5G6mG' ),
 					'extra' => array(
-						'style' => 'display: none;'
+						'style' => 'display: none;',
 					),
 				),
 				array(
-					'title' => __( 'JobRoller', APPAD_TD ),
+					'title' => __( 'JobRoller', 'appad-manager' ),
 					'name'  => '_blank',
 					'type'  => '',
-					'desc'  => html( 'img', array( 'src' => plugins_url( '/images/jr-screenshot.png', dirname( __FILE__ ) ), 'width' => '260', 'alt' => 'Clipper' ) ) . '<br />' .
-						sprintf( __( '<a target="_blank" href="%s">Buy Theme!</a>', APPAD_TD ), 'https://bit.ly/wQt43f' ),
+					'desc'  => html(
+						'img',
+						array(
+							'src'   => plugins_url( '/images/jr-screenshot.png', __DIR__ ),
+							'width' => '260',
+							'alt'   => 'Clipper',
+						)
+					) . '<br />' .
+						sprintf( __( '<a target="_blank" href="%s">Buy Theme!</a>', 'appad-manager' ), 'https://bit.ly/wQt43f' ),
 					'extra' => array(
-						'style' => 'display: none;'
+						'style' => 'display: none;',
 					),
 				),
 			),
 		);
-
-
 	}
 
 
@@ -116,7 +132,7 @@ class APP_Ad_Manager_Settings extends APP_Tabs_Page {
 		$options = array();
 
 		for ( $i = 1; $i <= 10; $i++ ) {
-			$options[$i] = $i;
+			$options[ $i ] = $i;
 		}
 
 		return $options;
@@ -129,13 +145,11 @@ class APP_Ad_Manager_Settings extends APP_Tabs_Page {
 	 * @return void
 	 */
 	function page_head() {
-?>
+		?>
 <style type="text/css">
 .form-table td label { display: block; }
 </style>
-<?php
+		<?php
 		parent::page_head();
 	}
-
-
 }

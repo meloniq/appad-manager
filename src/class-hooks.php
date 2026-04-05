@@ -1,5 +1,13 @@
 <?php
+/**
+ * Class Hooks.
+ *
+ * @package AppAdManager
+ */
 
+/**
+ * Class APP_Ad_Manager_Hooks.
+ */
 class APP_Ad_Manager_Hooks {
 
 	/**
@@ -20,7 +28,7 @@ class APP_Ad_Manager_Hooks {
 	/**
 	 * Constructor.
 	 *
-	 * @param scbOptions $options
+	 * @param scbOptions $options Options object.
 	 *
 	 * @return void
 	 */
@@ -28,7 +36,7 @@ class APP_Ad_Manager_Hooks {
 
 		$this->options = $options;
 
-		// Load hooks
+		// Load hooks.
 		$this->load_hooks();
 	}
 
@@ -49,7 +57,7 @@ class APP_Ad_Manager_Hooks {
 			return;
 		}
 
-		switch( $app_theme ) {
+		switch ( $app_theme ) {
 			case 'Clipper':
 				$this->hooks_clipper();
 				break;
@@ -60,7 +68,7 @@ class APP_Ad_Manager_Hooks {
 				$this->hooks_jobroller();
 				break;
 			default:
-				// do nothing, no supported theme
+				// do nothing, no supported theme.
 				break;
 		}
 	}
@@ -84,15 +92,14 @@ class APP_Ad_Manager_Hooks {
 	 */
 	public function between_clipper() {
 		$frequency = $this->options->get( 'between_frequency' );
-		$this->counter++;
+		++$this->counter;
 
-		if ( $this->counter == $frequency ) {
+		if ( $this->counter === $frequency ) {
 			echo '<div class="appad-clpr-between-box"><div class="appad-clpr-between-adsense">';
-			echo $this->options->get( 'between_code' );
+			echo $this->options->get( 'between_code' ); // phpcs:ignore
 			echo '</div></div>';
 			$this->counter = 0;
 		}
-
 	}
 
 
@@ -114,15 +121,14 @@ class APP_Ad_Manager_Hooks {
 	 */
 	public function between_classipress() {
 		$frequency = $this->options->get( 'between_frequency' );
-		$this->counter++;
+		++$this->counter;
 
-		if ( $this->counter == $frequency ) {
+		if ( $this->counter === $frequency ) {
 			echo '<div class="appad-cp-between-box"><div class="appad-cp-between-adsense">';
-			echo $this->options->get( 'between_code' );
+			echo $this->options->get( 'between_code' ); // phpcs:ignore
 			echo '</div></div>';
 			$this->counter = 0;
 		}
-
 	}
 
 
@@ -146,15 +152,14 @@ class APP_Ad_Manager_Hooks {
 		// todo: counter -1 ?!
 
 		$frequency = $this->options->get( 'between_frequency' );
-		$this->counter++;
+		++$this->counter;
 
-		if ( $this->counter == $frequency ) {
+		if ( $this->counter === $frequency ) {
 			echo '<div class="appad-jr-between-box"><div class="appad-jr-between-adsense">';
-			echo $this->options->get( 'between_code' );
+			echo $this->options->get( 'between_code' ); // phpcs:ignore
 			echo '</div></div>';
 			$this->counter = 0;
 		}
-
 	}
 
 
@@ -166,5 +171,4 @@ class APP_Ad_Manager_Hooks {
 	public function between_reset() {
 		$this->counter = 0;
 	}
-
 }

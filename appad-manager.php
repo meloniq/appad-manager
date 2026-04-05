@@ -1,21 +1,36 @@
 <?php
-/*
-Plugin Name: AppAd Manager
-Plugin URI: https://blog.meloniq.net/2012/03/08/wp-plugin-appad-manager/
-Description: Displays google adsense (or other ads) between posts in AppThemes Premium Themes.
+/**
+ * Plugin Name: AppAd Manager
+ * Plugin URI: https://blog.meloniq.net/2012/03/08/wp-plugin-appad-manager/
+ *
+ * Description: Displays google adsense (or other ads) between posts in AppThemes Premium Themes.
+ * Tags: adsense, advertise, banner, adsense, appthemes
+ *
+ * Requires at least: 4.9
+ * Requires PHP: 5.6
+ * Version: 1.3
+ *
+ * Author: MELONIQ.NET
+ * Author URI: https://blog.meloniq.net
+ *
+ * License: GPLv2
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Text Domain: appad-manager
+ * Domain Path: /languages
+ *
+ * @package AppAdManager
+ */
 
-Version: 1.3
+// If this file is accessed directly, then abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
-Author: MELONIQ.NET
-Author URI: https://blog.meloniq.net
-Text Domain: appad-manager
-Domain Path: /languages
-
-Requires at least: 4.9
-Requires PHP: 5.6
-*/
-
-
+/**
+ * Plugin version and textdomain constants.
+ */
+define( 'APPAD_VERSION', '1.3' );
 define( 'APPAD_TD', 'appad-manager' );
 
 
@@ -27,9 +42,9 @@ define( 'APPAD_TD', 'appad-manager' );
 function appad_manager_setup() {
 	global $appad_options;
 
-	require_once( dirname( __FILE__ ) . '/src/functions.php' );
+	require_once __DIR__ . '/src/functions.php';
 
-	// Check for existence of AppThemes compatible product
+	// Check for existence of AppThemes compatible product.
 	if ( ! function_exists( 'appthemes_init' ) ) {
 		if ( ! appad_manager_is_network_activated() ) {
 			add_action( 'admin_notices', 'appad_manager_display_version_warning' );
@@ -37,7 +52,7 @@ function appad_manager_setup() {
 		return;
 	}
 
-	require_once( dirname( __FILE__ ) . '/src/options.php' );
+	require_once __DIR__ . '/src/options.php';
 
 	if ( is_admin() ) {
 
@@ -46,13 +61,13 @@ function appad_manager_setup() {
 			return;
 		}
 
-		// initialize admin page
-		require_once( dirname( __FILE__ ) . '/src/class-admin.php' );
+		// initialize admin page.
+		require_once __DIR__ . '/src/class-admin.php';
 		new APP_Ad_Manager_Settings( $appad_options );
 	}
 
-	// initialize scanner
-	require_once( dirname( __FILE__ ) . '/src/class-hooks.php' );
+	// initialize scanner.
+	require_once __DIR__ . '/src/class-hooks.php';
 	new APP_Ad_Manager_Hooks( $appad_options );
 }
 add_action( 'appthemes_init', 'appad_manager_setup' );
@@ -75,7 +90,7 @@ add_action( 'init', 'appad_manager_load_textdomain' );
  * @return void
  */
 function appad_load_styles() {
-	wp_register_style( 'appad_style', plugins_url( 'style.css', __FILE__ ) );
+	wp_register_style( 'appad_style', plugins_url( 'style.css', __FILE__ ), array(), APPAD_VERSION );
 	wp_enqueue_style( 'appad_style' );
 }
 add_action( 'wp_print_styles', 'appad_load_styles' );
@@ -84,8 +99,8 @@ add_action( 'wp_print_styles', 'appad_load_styles' );
 /**
  * AppThemes Addons MP markup.
  *
- * @param string $output
- * @param object $addon
+ * @param string $output Addons MP output.
+ * @param object $addon Addons MP addon object.
  *
  * @return string
  */
@@ -100,8 +115,8 @@ function appad_manager_addons_mp_markup( $output, $addon ) {
 		'utm_medium'   => 'wp-admin',
 		'utm_campaign' => 'AppAd%20Manager',
 	);
-	$new_url = remove_query_arg( array_keys( $link_args ), $addon->link );
-	$new_url = add_query_arg( $link_args, $new_url );
+	$new_url   = remove_query_arg( array_keys( $link_args ), $addon->link );
+	$new_url   = add_query_arg( $link_args, $new_url );
 
 	$output = str_replace( $addon->link, $new_url, $output );
 	$output = str_replace( esc_url( $addon->link ), esc_url( $new_url ), $output );
@@ -131,6 +146,5 @@ function appad_manager_addons_mp() {
 		$filter_name = 'appthemes_addons_mp_markup_' . $theme_slug . '_page_app-addons-mp';
 		add_filter( $filter_name, 'appad_manager_addons_mp_markup', 9, 2 );
 	}
-
 }
 add_action( 'appthemes_init', 'appad_manager_addons_mp' );

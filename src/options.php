@@ -1,12 +1,19 @@
 <?php
 /**
  * Default Options.
+ *
+ * @package AppAdManager
  */
-$GLOBALS['appad_options'] = new scbOptions( 'appad_options', false, array(
 
-	// Settings
-	'between_active'    => false,
-	'between_frequency' => 3,
-	'between_code'      => '',
+$GLOBALS['appad_options'] = new scbOptions(
+	'appad_options',
+	false,
+	array(
 
-) );
+		// Settings.
+		'between_active'    => false,
+		'between_frequency' => 3,
+		'between_code'      => '',
+
+	)
+);

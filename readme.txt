@@ -1,9 +1,9 @@
 === AppAd Manager ===
-Contributors: meloniq, appthemes
+Contributors: meloniq
 Tags: adsense, advertise, banner, adsense, appthemes
 Requires at least: 4.9
 Requires PHP: 5.6
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 1.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
